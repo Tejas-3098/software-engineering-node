@@ -17,7 +17,7 @@
  import mongoose from "mongoose";
  
  // connect to the database
- mongoose.connect('mongodb+srv://Tejas:mongodb1234@cluster0.uhdcr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+ mongoose.connect('mongodb+srv://Tejas:fsea2tuiter@cluster0.uhdcr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
  
  const app = express();
  app.use(express.json());
