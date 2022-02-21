@@ -12,8 +12,8 @@
  */
  import express, {Request, Response} from 'express';
  import UserController from "./controllers/UserController";
- //import TuitController from "./controllers/TuitController";
- //import LikeController from "./controllers/LikeController";
+ import TuitController from "./controllers/TuitController";
+ import LikeController from "./controllers/LikeController";
  import mongoose from "mongoose";
  
  // connect to the database
@@ -29,6 +29,8 @@
  
  // create RESTful Web service API
  const userController = UserController.getInstance(app);
+ const tuitController = TuitController.getInstance(app);
+ const likesController = LikeController.getInstance(app);
 
  
  /**
