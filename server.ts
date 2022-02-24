@@ -17,7 +17,8 @@
  import mongoose from "mongoose";
  
  // connect to the database
- mongoose.connect('mongodb+srv://newuser:tuitera2@cluster1.uhdcr.mongodb.net/tuitera2?retryWrites=true&w=majority');
+ //mongoose.connect('mongodb+srv://newuser:tuitera2@cluster1.uhdcr.mongodb.net/tuitera2?retryWrites=true&w=majority');
+ mongoose.connect('mongodb+srv://tuiteruser:mongo1234@tuiter.uhdcr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
  const app = express();
  app.use(express.json());
  
