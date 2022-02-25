@@ -14,7 +14,11 @@
  import UserController from "./controllers/UserController";
  import TuitController from "./controllers/TuitController";
  import LikeController from "./controllers/LikeController";
+ import BookmarkController from './controllers/BookmarkController';
+ import FollowController from './controllers/FollowController';
+ import MessageController from './controllers/MessageController';
  import mongoose from "mongoose";
+
  
  // connect to the database
  //mongoose.connect('mongodb+srv://newuser:tuitera2@cluster1.uhdcr.mongodb.net/tuitera2?retryWrites=true&w=majority');
@@ -32,8 +36,9 @@
  const userController = UserController.getInstance(app);
  const tuitController = TuitController.getInstance(app);
  const likesController = LikeController.getInstance(app);
-
- 
+ const followController = FollowController.getInstance(app);
+ const bookmarkController = BookmarkController.getInstance(app);
+ const messageController = MessageController.getInstance(app);
  /**
   * Start a server listening at port 4000 locally
   * but use environment variable PORT on Heroku if available.
