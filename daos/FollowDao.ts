@@ -10,7 +10,7 @@ export default class FollowDao implements FollowDaoI {
         return FollowDao.followDao;
     }
     private constructor() {}
-    userFollowsAnotherUser = async (uid1: string, uid2: string): Promise<any> => 
+    userFollowsAnotherUser = async (uid1: string, uid2: string): Promise<Follow> => 
         FollowModel.create({userFollowed: uid2, followedBy:uid1});
     userUnfollowsAnotherUser = async (uid1: string, uid2: string): Promise<any> =>
         FollowModel.deleteOne({userFollowed: uid2, followedBy:uid1})
