@@ -39,6 +39,7 @@ export default class MessageController implements MessageControllerI {
         .then((messages: Message[]) => res.json(messages));
 
     userDeletesMessage = (req: Request, res: Response) => 
-        MessageController.messageDao.userDeletesMessage(req.params.uid1, req.params.uid2, req.body);
+        MessageController.messageDao.userDeletesMessage(req.params.uid1, req.params.uid2)
+        .then(Message => res.json(Message));
        
 };
