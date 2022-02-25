@@ -5,8 +5,6 @@ import MessageDao from "../daos/MessageDao";
 import Message from "../models/messages/Message";
 import {Express, Request, Response} from "express";
 import MessageControllerI from "../interfaces/MessageControllerI";
-import { ParamsDictionary } from "express-serve-static-core";
-import { ParsedQs } from "qs";
 
 export default class MessageController implements MessageControllerI {
     private static messageDao: MessageDao = MessageDao.getInstance();
@@ -26,8 +24,8 @@ export default class MessageController implements MessageControllerI {
     private constructor() {}
 
     userMessagesAnotherUser = (req: Request, res: Response) =>
-        MessageController.messageDao.userMessagesAnotherUser(req.body, req.params.uid1, req.params.uid2)
-        .then((messages: Message) => res.json(messages));
+        MessageController.messageDao.userMessagesAnotherUser(req.body.message, req.params.uid1, req.params.uid2)
+        .then(Message => res.json(Message));
     
     
     findAllMessagesSentByUser = (req: Request, res: Response) => 
