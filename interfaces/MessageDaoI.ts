@@ -8,5 +8,5 @@ export default interface MessageDaoI {
     userMessagesAnotherUser (message: String, from: String, to:String): Promise<Message>;
     findAllMessagesSentByUser (uid: String): Promise<Message[]>;
     findAllMessagesSentToUser (uid1: String, uid2: String): Promise<Message[]>;
-    userDeletesMessage (uid1: string, uid2: string): Promise<any>;
+    userDeletesMessage (uid1: string, uid2: string, message: String): Promise<any>;
 }
