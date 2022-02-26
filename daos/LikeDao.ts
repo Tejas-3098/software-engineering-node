@@ -24,6 +24,7 @@ export default class LikeDao implements LikeDaoI {
 
     /**
       * Uses LikeModel to retrieve all users that liked a tuit
+      * @param {string} tid ID of the tuit
       * @returns Promise To be notified when the users are retrieved from
       * database
       */
@@ -50,6 +51,11 @@ export default class LikeDao implements LikeDaoI {
       */          
     userLikesTuit = async (uid: string, tid: string): Promise<any> =>
         LikeModel.create({tuit: tid, likedBy: uid});
+
+    /**
+      * Uses LikeModel to unlike a tuit
+      * @returns Promise To be notified when the tuits are deleted
+      */      
     userUnlikesTuit = async (uid: string, tid: string): Promise<any> =>
         LikeModel.deleteOne({tuit: tid, likedBy: uid});
 }

@@ -24,6 +24,9 @@ export default class MessageDao implements MessageDaoI {
 
     /**
       * Uses MessageModel to create message relationship
+      * @param {string} message message 
+      * @param {string} uid1 Id of user 1
+      * @param {string} uid1 Id of user 2
       * @returns Promise To be notified when the message relationship is created
       */
     userMessagesAnotherUser = async (message: String, uid1: String, uid2: String): Promise<Message> => 
@@ -31,6 +34,7 @@ export default class MessageDao implements MessageDaoI {
 
     /**
       * Uses MessageModel to retreive all messages sent by user
+      * @param {string} uid Id of user
       * @returns Promise To be notified when the messages are retreived
       */    
     findAllMessagesSentByUser = async (uid: String): Promise<Message[]> =>
@@ -38,6 +42,8 @@ export default class MessageDao implements MessageDaoI {
 
     /**
       * Uses MessageModel to retreive all messages sent to user
+      * @param {string} uid1 Id of user 1
+      * @param {string} uid2 Id of user 2
       * @returns Promise To be notified when the messages are retreived
       */    
     findAllMessagesSentToUser = async (uid1: String, uid2: String): Promise<Message[]> =>
