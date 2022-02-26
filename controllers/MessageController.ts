@@ -13,10 +13,10 @@ export default class MessageController implements MessageControllerI {
     public static getInstance = (app: Express): MessageController => {
         if(MessageController.messageController === null) {
             MessageController.messageController = new MessageController();
-            app.post("/api/users/uid1/messages/uid2", MessageController.messageController.userMessagesAnotherUser);
-            app.get("/api/users/uid/messages/sent", MessageController.messageController.findAllMessagesSentByUser);
-            app.get("/api/users/uid1/messages/uid2", MessageController.messageController.findAllMessagesSentToUser);
-            app.delete("/api/")
+            app.post("/api/users/:uid1/messages/:uid2", MessageController.messageController.userMessagesAnotherUser);
+            app.get("/api/users/:uid/messages/sent", MessageController.messageController.findAllMessagesSentByUser);
+            app.get("/api/users/:uid1/messages/:uid2", MessageController.messageController.findAllMessagesSentToUser);
+            app.delete("/api/users/:uid1/messages/:uid2", MessageController.messageController.deleteMessage);
         }
         return MessageController.messageController;
     }
@@ -36,8 +36,8 @@ export default class MessageController implements MessageControllerI {
         MessageController.messageDao.findAllMessagesSentToUser(req.params.uid2, req.params.uid1)
         .then((messages: Message[]) => res.json(messages));
 
-    userDeletesMessage = (req: Request, res: Response) => 
-        MessageController.messageDao.userDeletesMessage(req.params.uid1, req.params.uid2)
+    deleteMessage = (req: Request, res: Response) => 
+        MessageController.messageDao.deleteMessage(req.params.uid1, req.params.uid2)
         .then(Message => res.json(Message));
        
 };

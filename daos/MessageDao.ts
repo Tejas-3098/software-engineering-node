@@ -12,11 +12,11 @@ export default class MessageDao implements MessageDaoI {
     }
     private constructor() {}
     userMessagesAnotherUser = async (message: String, uid1: String, uid2: String): Promise<Message> => 
-        MessageModel.create({message: message, from: uid1, to: uid2});
+        MessageModel.create({message: message, to: uid2, from: uid1});
     findAllMessagesSentByUser = async (uid: String): Promise<Message[]> =>
         MessageModel.find({from:uid});
     findAllMessagesSentToUser = async (uid1: String, uid2: String): Promise<Message[]> =>
         MessageModel.find({from:uid1, to:uid2});
-    userDeletesMessage = async (uid1: String, uid2: String): Promise<any> => 
-        MessageModel.deleteMany({from:uid1, to:uid2});
+    deleteMessage = async (uid1: String, uid2: String): Promise<any> => 
+        MessageModel.deleteMany({to: uid2, from:uid1});
 }   
