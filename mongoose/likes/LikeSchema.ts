@@ -1,3 +1,6 @@
+/**
+ * @file Implements a mongoose schema which defines the shape of the object in likes collection
+ */
 import mongoose, {Schema} from "mongoose";
 import Like from "../../models/likes/Like";
 

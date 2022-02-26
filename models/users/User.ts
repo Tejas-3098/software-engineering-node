@@ -1,3 +1,7 @@
+/**
+ * @file User is an interface which contains information about the user like username, password, FirstName, DateOfBirth etc.
+ * It is like a user profile
+ */
 import AccountType from "./AccountType";
 import MaritalStatus from "./MaritalStatus";
 import Location from "./Location";

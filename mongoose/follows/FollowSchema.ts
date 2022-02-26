@@ -1,3 +1,6 @@
+/**
+ * @file Implements a mongoose schema which defines the shape of the object in follows collection
+ */
 import mongoose, {Schema} from "mongoose";
 import Follow from "../../models/follows/Follow";
 

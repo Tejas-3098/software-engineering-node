@@ -1,3 +1,6 @@
+/**
+ * @file Implements a mongoose schema which defines the shape of the object in users collection
+ */
 import mongoose from "mongoose";
 import User from "../../models/users/User";
 const UserSchema = new mongoose.Schema<User>({
