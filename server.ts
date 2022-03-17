@@ -18,6 +18,7 @@
  import FollowController from './controllers/FollowController';
  import MessageController from './controllers/MessageController';
  import mongoose from "mongoose";
+ 
 
  
  // connect to the database
@@ -25,7 +26,10 @@
  mongoose.connect('mongodb+srv://tuiteruser:mongo1234@tuiter.uhdcr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
  const app = express();
  app.use(express.json());
- 
+ const cors = require('cors')
+ app.use(cors())
+
+
  app.get('/', (req: Request, res: Response) =>
      res.send('Welcome!'));
  
